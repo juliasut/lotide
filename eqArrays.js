@@ -8,15 +8,10 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const head = function(arr) {
-  const [first, ...other] = arr;
-  return first;
+const eqArrays = function(arr1, arr2) {
+  return arr1.length === arr2.length &&
+  arr1.every((val, index) => val === arr2[index]);
 };
 
-
-
-assertEqual(head([5,6,7]), 5);
-assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
-assertEqual(head([]), "Other");
-assertEqual(head([]), "1");
-assertEqual(head(["one"]), "one");
+assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+assertEqual(eqArrays([1], [1, 2, 3]), true);

@@ -15,3 +15,13 @@ const eqArrays = function(arr1, arr2) {
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
 assertEqual(eqArrays([1], [1, 2, 3]), true);
+
+/* const eqArrays2 =function(a, b) {
+  a.forEach((num1, index) => {
+    let num2 = b[index];
+    return num1 === num2;
+  })
+};
+
+console.log(arrayEquals([1, 4, 3], [1, 4, 3])); //undefined
+*/

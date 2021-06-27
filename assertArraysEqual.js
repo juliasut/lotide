@@ -3,8 +3,7 @@ const eqArrays = function(arr1, arr2) {
   arr1.every((val, index) => val === arr2[index]);
 };
 
-
-const assertArrayEqual = function(arr1, arr2) {
+const assertArraysEqual = function(arr1, arr2) {
   if (eqArrays(arr1, arr2)) {
     console.log(`✅ ✅ ✅  Assertion Passed: ${arr1} === ${arr2}`);
   } else {
@@ -16,3 +15,5 @@ assertArrayEqual([1, 3, 5], [1, 3, 5]);
 assertArrayEqual(["Ok", 3, 5], [1, 3, 5]);
 assertArrayEqual([1, 5], [1, 3, 5]);
 assertArrayEqual([], []);
+assertArrayEqual([], [undefined]);
+assertArrayEqual([{a: 1}], [{a: 1}]); // cannot process objects in the array

@@ -8,9 +8,7 @@ const assertEqual = function(actual, expected) {
 
 const countOnly = function(allItems, itemsToCount) {
   const results = {};
-  
   for (const item of allItems) { //for each value in the array
-
     if (itemsToCount[item]) { //if value of the object evaluates to true
       if (results[item]) {
         results[item] += 1; // if an item is already in and counted, add 1 more. (first time returns NaN)
@@ -21,7 +19,6 @@ const countOnly = function(allItems, itemsToCount) {
   }
   return results;
 }
-
 
 const firstNames = [
   "Karl",

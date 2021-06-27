@@ -23,6 +23,12 @@ const takeUntil = function(data, callback) {
   return resultArray;
 };
 
+// Another way:
+// const taleUntil = function(data, callback) {
+//   const endIndex = array.findIndex(callback);
+//   return array.slice(0, endIndex)
+// };
+
 
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
 const results1 = takeUntil(data1, x => x < 0);

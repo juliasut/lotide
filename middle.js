@@ -12,28 +12,24 @@ const assertArrayEqual = function(arr1, arr2) {
 
 const middle = function(arr) {
   const middleElements = [];
-  let i = 0;
+  let i = arr.length / 2;
 
-  if (arr.length < 3) {
-    return middleElements;
-  }
-  if (arr.length % 2 !== 0) {
-    i = (arr.length - 1) / 2;
-    middleElements.push(arr[i]);
-  }
+  if (arr.length > 2) {
 
-  if (arr.length % 2 === 0) {
-    i = (arr.length / 2);
-    middleElements.push(arr[i - 1], arr[i]);
+    if (arr.length % 2 === 0) {
+      middleElements.push(arr[i - 1], arr[i]);
+    } else {
+      middleElements.push(arr[Math.floor(i)]);
+    }
   }
   return middleElements;
 };
 
-assertArrayEqual(middle([1]), []); // => []
-assertArrayEqual(middle([1, 2]), []); // => []
+assertArrayEqual(middle([1]), []);
+assertArrayEqual(middle([1, 2]), []);
 
-assertArrayEqual(middle([1, 2, 3]), [2]); // => [2]
+assertArrayEqual(middle([1, 2, 3]), [2]);
 assertArrayEqual(middle([1, 2, 3, 4, 5]), [3]);
 
-assertArrayEqual(middle([1, 2, 3, 4]), [2, 3]); // => [2, 3]
+assertArrayEqual(middle([1, 2, 3, 4]), [2, 3]);
 assertArrayEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);

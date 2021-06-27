@@ -1,38 +1,26 @@
-const assertEqual = function(obj1, obj2) {
-  const inspect = require('util').inspect;
-  let answer = `❌ Assertion Failed: ${inspect(obj1)} !== ${inspect(obj2)}`;
-  if (String(obj1) === String(obj2)) {
-    answer = `✅ ✅ ✅  Assertion Passed: ${inspect(obj1)} === ${inspect(obj2)}`;
+const assertEqual = function(actual, expected) {
+  let answer = `❌ Assertion Failed: ${actual} !== ${expected}`;
+  if (String(actual) === String(expected)) {
+    answer = `✅ ✅ ✅  Assertion Passed: ${actual} === ${expected}`;
   }
-  return answer;
+  console.log(answer);
 };
 
-
-const eqObjects = function(obj1, obj2) {
-  const obj1KeysArray = Object.keys(obj1);
-  const obj2KeysArray = Object.keys(obj2);
-
-  if (obj1KeysArray.length !== obj2KeysArray.length) {
-    return false;
-    }
-
-    for (const key1 in obj1) { 
-      if (obj1[key1] !== obj2[key1]) {
-        return false;
-      } 
-    }
-  return true;
+const eqArrays = function(arr1, arr2) {
+   if (arr1.length !== arr2.length) {
+     return false;
+   }
+   return arr1.every((val, index) => val === arr2[index]);
 };
 
-const ab = { a: "1", b: "2"};
-const ba = { b: "2", a: "1"};
-eqObjects(ab, ba); // true
-assertEqual(eqObjects(ab, ba), true); // assertion passed
+//checking the length of the arrays in case last elements of one left unevaluated
+// .every() method goes though each element of an array;
+// passes a callback function;
+// and passes each element to that function;
+// checks something and returns true or false;
+// only if each(!) element returns true, .each() method returns a true;
 
-const abc = { a: "1", b: "2", c: "3"};
-eqObjects(ab, abc); // false
-assertEqual(eqObjects(ab, abc), false); // assertion passed
 
-const ac = { a: "1", c: "m"};
-eqObjects(ab, ac); // false
-assertEqual(eqObjects(ab, ac), false); // assertion passed
+
+assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+assertEqual(eqArrays([1], [1, 2, 3]), true);

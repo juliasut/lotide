@@ -7,16 +7,33 @@ const assertEqual = function(actual, expected) {
 };
 
 const findKeyByValue = function(obj, value) {
-
-  //scan the object -> use for..in loop for objects (iterates in arbitrary order)
-  for (let key in obj) {
-    if (obj[key].includes(value)) {
-      //console.log(key);
-      //return the first key which contains the given value
-      return key;
+  for (let parameter in obj) {   // scan the object -> use for..in loop for objects (iterates in arbitrary order)
+    if (obj[parameter].includes(value)) {    // key is a parameter; obj[key] is the value of that parameter;
+      return parameter;   // return the first key which contains the given value
     }
   }
 };
+
+/*const findkeyByValue = function(shows, movieName) {
+  for (let genre in shows) {
+    if (shows[genre] === movieName) {
+      return genre;
+    }
+  }
+}*/
+
+
+/*const findKeyByValue = function(shows, movieName) {
+  const genreArray = Object.keys(shows);
+  for (let genre in genreArray) {       // returns a flat array of object properties (keys)
+    if (shows[genre] === movieName) {
+      return genre;
+    }
+  }
+}
+
+
+
 
 const bestTVShowsByGenre = { 
   sci_fi: "The Expanse",

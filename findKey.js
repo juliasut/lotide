@@ -7,12 +7,20 @@ const assertEqual = function(actual, expected) {
 };
 
 const findKey = function(planetSystem, callback) {
-  for (const starName in planetSystem) {
-    if(callback(planetSystem[starName])) {
+  for (const starName in planetSystem) {    // for..in loop for objects
+    if (callback(planetSystem[starName])) {
       return starName;   //returns the first truthy value
     }
   }
 };
+
+/*const findKey = function(obj, callback) {
+  for (const param in obj) {
+    if (callback(obj[param])) {
+      return param;
+    }
+  }
+}
 
 findKey({
   "Blue Hill": { stars: 1 },

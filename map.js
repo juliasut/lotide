@@ -12,7 +12,7 @@ const assertArrayEqual = function(arr1, arr2) {
 };
 
 const words = ["ground", "control", "to", "major", "tom"];
-const map = function(array, callback) {
+const map = function(array, callback) {  //map() creates new array with the results of callback function on every element
 
 const results = [];
   for (let item of array) {

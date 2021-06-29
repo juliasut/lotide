@@ -1,3 +1,4 @@
+const assertEqual = requires('./assertEqual')
 
 const tail = function(arr) {
   const [first, ...other] = arr;

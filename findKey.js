@@ -1,10 +1,4 @@
-const assertEqual = function(actual, expected) {
-  if (String(actual) !== String(expected)) {
-    console.log(`❌ Assertion Failed: ${actual} !== ${expected}`);
-  } else {
-    console.log(`✅ ✅ ✅  Assertion Passed: ${actual} === ${expected}`);
-  }
-};
+const assertEqual = require('./assertEqual')
 
 const findKey = function(planetSystem, callback) {
   for (const starName in planetSystem) {    // for..in loop for objects
@@ -63,3 +57,5 @@ assertEqual(findKey({
 }, x => x.stars === 2), "Ora");
 
 assertEqual(findKey({}, x => x.stars === 2), undefined)
+
+module.exports = findKey;

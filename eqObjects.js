@@ -1,11 +1,4 @@
-const assertEqual = function(obj1, obj2) {
-  const inspect = require('util').inspect;
-  let answer = `❌ Assertion Failed: ${inspect(obj1)} !== ${inspect(obj2)}`;
-  if (String(obj1) === String(obj2)) {
-    answer = `✅ ✅ ✅  Assertion Passed: ${inspect(obj1)} === ${inspect(obj2)}`;
-  }
-  return answer;
-};
+const assertEqual = require('./assertEqual')
 
 
 const eqObjects = function(obj1, obj2) {
@@ -36,3 +29,5 @@ assertEqual(eqObjects(ab, abc), false); // assertion passed
 const ac = { a: "1", c: "m"};
 eqObjects(ab, ac); // false
 assertEqual(eqObjects(ab, ac), false) // assertion passed
+
+module.exports = eqObjects;
